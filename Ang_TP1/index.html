@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<!-- Créer compte GitHub -->
+<html lang="en" data-ng-app="FirstApp">
+    <head>
+        <meta charset="UTF-8">
+        <title>First Angular</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js"></script>
+        <script src="app.js"></script>
+        <script src="mainController.js"></script>
+    </head>
+
+    <body data-ng-controller="MainController as mainCtrl">
+        {{2+7}}
+        <br>
+        {{mainCtrl.bonjour}}
+        {{mainCtrl.message}} <!-- Ne fonctionne pas car variable local au controller-->
+        {{mainCtrl.getMsg()}}
+        <br>
+        {{mainCtrl.bonjour}}
+        {{mainCtrl.getMsg2()}}
+        <br>
+        {{mainCtrl.bonjour}}
+        {{mainCtrl.getMsg3()}}
+    </body>
+
+</html>
