@@ -1,0 +1,46 @@
+<!--
+Exercice 8 : Application Note
+http://slamwi.kobject.net/slam4/richclient/angularjs/td1
+-->
+<!DOCTYPE html>
+<html lang="en" data-ng-app="AppNote">
+    <head>
+        <meta charset="UTF-8">
+        <title>8 - Exercice : Application de Note</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js"></script>
+        <script src="app.js"></script>
+        <script src="mainController.js"></script>
+    </head>
+
+    <body data-ng-controller="MainController as mainCtrl">
+
+        Note :
+        <div>
+            <textarea rows="4" cols="50"
+                      ng-model="mainCtrl.labelNote"
+                      ng-change="change()"
+                      id="ng-change-example"
+            ></textarea>
+            <br>
+            Votre message : {{mainCtrl.labelNote}}
+        </div>
+        <br>
+        <div>
+            <button>Enregistrer</button>
+            <button>Effacer</button>
+        </div>
+        <br>
+        <div>
+            <fieldset>
+                <label>Nombre de caractères restant : </label> <tt>counter = {{mainCtrl.counter}}</tt><br/>
+            </fieldset>
+        </div>
+        <br>
+        <div>
+            <fieldset>
+                <label>Sauvegarde</label>
+            </fieldset>
+        </div>
+    </body>
+
+</html>
