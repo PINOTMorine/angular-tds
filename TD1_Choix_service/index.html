@@ -1,0 +1,33 @@
+<!--
+Exercice : Choix de services
+http://slamwi.kobject.net/slam4/richclient/angularjs/td1
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>exo2</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js"></script>
+    <script src="MainController.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body data-ng-app="app">
+<fieldset class="fj" ng-controller="MainController as mainCtrl">
+    <h1 style="color:#7575ff;">Services</h1>
+    <fieldset>
+        Choisissez les services voulus
+        <br>
+        {{mainCtrl.count()}} service(s) sélectionné(s)
+    </fieldset>
+    <br>
+    <div ng-repeat="product in mainCtrl.products">
+        <p ng-repeat="service in product.services">
+            <button class="bouton">{{service.name}} {{service.price}}€</button>
+        </p>
+    </div>
+    <div>
+
+    </div>
+</fieldset>
+</body>
+</html>
