@@ -1,0 +1,9 @@
+fieldset{
+    border-radius:8px;
+    width:350px;
+}
+.fi{
+    background-color:rgba(204,204,255,0.7);
+    color:#00008B;
+    border:1px solid #00008B;
+}
