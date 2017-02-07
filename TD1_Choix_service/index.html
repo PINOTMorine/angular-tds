@@ -20,13 +20,11 @@ http://slamwi.kobject.net/slam4/richclient/angularjs/td1
         {{mainCtrl.count()}} service(s) sélectionné(s)
     </fieldset>
     <br>
-    <div ng-repeat="product in mainCtrl.products">
-        <p ng-repeat="service in product.services">
-            <button class="bouton">{{service.name}} {{service.price}}€</button>
+        <p ng-repeat="service in mainCtrl.services">
+            <button class="bouton" ng-class="{'active' : service.active}" ng-click="mainCtrl.activer(service)" >{{service.name}} <span>{{service.price}}€</span> </button>
         </p>
-    </div>
     <div>
-
+        Total : {{mainCtrl.countPrix()}} €
     </div>
 </fieldset>
 </body>

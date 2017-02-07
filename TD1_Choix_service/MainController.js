@@ -6,9 +6,7 @@
 var app = angular.module('app',[]);
 app.controller('MainController', function() {
 
-    this.products=[
-        {
-            services: [
+    this.services= [
                 {
                     name: "Web Development",
                     price: 300,
@@ -26,8 +24,8 @@ app.controller('MainController', function() {
                     price: 220,
                     active:false
                 }
-            ],
-            promos: [
+            ]
+     this.promos= [
                 {
                     code: "B22",
                     reduc: 0.05
@@ -39,21 +37,28 @@ app.controller('MainController', function() {
                     reduc: 0.02
                 }
             ]
-        }
 
-    ]
+
     var info = "";
-    this.value = "";
+    this.value = 1;
+    this.prix = 300.00;
     var self=this;
 
     this.count = function() {
-        return self.value.length;
+        return self.value;
+    };
+    this.countPrix = function() {
+        return self.prix;
     };
 
-    this.save = function(){
-        info="Message sauvegardé";
-        if (self.value != "") {
-            cookies.put('messageNote', self.value);
+    this.activer = function(service){
+        service.active=!service.active;
+        if(service.active==true) {
+            self.value = self.value + 1;
+            self.prix= self.prix + service.price;
+        }else{
+            self.value = self.value - 1;
+            self.prix= self.prix - service.price;
         }
     };
 });
