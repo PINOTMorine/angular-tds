@@ -41,7 +41,12 @@ app.controller('MainController', function() {
 
     var info = "";
     this.value = 1;
+    this.codePromo = "";
+    this.boutC=false
+    this.valuePromo = 0;
+    this.coefPromo = 0;
     this.prix = 300.00;
+    this.Final = 300.00;
     var self=this;
 
     this.count = function() {
@@ -60,5 +65,35 @@ app.controller('MainController', function() {
             self.value = self.value - 1;
             self.prix= self.prix - service.price;
         }
+    };
+    this.chek=function () {
+        self.boutC=!self.boutC;
+    }
+
+    this.remisePrix = function() {
+        if(self.codePromo=="B22"){
+            self.coefPromo=0.05;
+            self.Final=self.prix*self.coefPromo;
+            return self.Final + " €";
+        }else{
+            if(self.codePromo=="AZ"){
+                self.coefPromo=0.01;
+                self.Final=self.prix*self.coefPromo;
+                return self.Final + " €";
+            }else{
+                if(self.codePromo=="UBOAT"){
+                    self.coefPromo=0.02;
+                    self.Final=self.prix*self.coefPromo;
+                    return self.Final + " €";
+                }else{
+                    self.Final=self.prix;
+                    return "Aucun code promo";
+                }
+            }
+
+        }
+    };
+    this.totalPrix = function() {
+        var i = self.prix-self.Final;
     };
 });
