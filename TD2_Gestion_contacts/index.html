@@ -8,11 +8,11 @@
 </head>
 <body data-ng-app="app">
 <fieldset ng-controller="MainController as mainCtrl">
-    <h3>Contacts</h3>
+    <h3 style="border:1px solid black">Contacts</h3>
     <input type="text" placeholder="Filtrer..." ng-model="searchText">
     <br><br>
     <table>
-        <tr ng-repeat="contact in mainCtrl.contacts | filter:searchText">
+        <tr ng-repeat="contact in mainCtrl.contacts | filter:searchText as data">
             <td ng-show="!contact.suppr"> {{contact.nom}} </td>
             <td ng-show="!contact.suppr"> {{contact.prenom}} </td>
             <td ng-show="!contact.suppr"> {{contact.mail}} </td>
@@ -44,7 +44,7 @@
     </div>
 
     <br><br>
-    <label>{{mainCtrl.nbCont}} contacts trouvés</label>
+    <label>{{(data|filter:searchText).length}} contacts trouvés</label>
 </fieldset>
 </body>
 </html>
