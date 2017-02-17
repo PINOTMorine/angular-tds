@@ -24,29 +24,21 @@ app.controller('MainController', function() {
                     price: 220,
                     active:false
                 }
-            ]
-     this.promos= [
-                {
-                    code: "B22",
-                    reduc: 0.05
-                },{
-                    code: "AZ",
-                    reduc: 0.01
-                },{
-                    code: "UBOAT",
-                    reduc: 0.02
-                }
-            ]
+            ];
+     var promos= {
+         "B22":0.05,
+         "AZ":0.01,
+         "UBOAT":0.02
+     }
 
 
-    var info = "";
     this.value = 1;
     this.codePromo = "";
-    this.boutC=false
-    this.valuePromo = 0;
+    this.boutC=false;
     this.coefPromo = 0;
     this.prix = 300.00;
-    this.Final = 300.00;
+    this.Final = 300.00
+    this.listePromo = promos;
     var self=this;
 
     this.count = function() {
@@ -71,29 +63,40 @@ app.controller('MainController', function() {
     }
 
     this.remisePrix = function() {
-        if(self.codePromo=="B22"){
+        if(self.listePromo[self.codePromo]==null){
+            self.Final=0;
+            return "Aucun code promo";
+        }else{
+            self.coefPromo=self.listePromo[self.codePromo];
+            self.Final=self.prix*self.coefPromo;
+            return Math.round(self.Final*100)/100 + " €";
+
+
+        }
+        /*if(self.codePromo=="B22"){
             self.coefPromo=0.05;
             self.Final=self.prix*self.coefPromo;
-            return self.Final + " €";
+            return Math.round(self.Final*100)/100 + " €";
         }else{
             if(self.codePromo=="AZ"){
                 self.coefPromo=0.01;
                 self.Final=self.prix*self.coefPromo;
-                return self.Final + " €";
+                return Math.round(self.Final*100)/100 + " €";
             }else{
                 if(self.codePromo=="UBOAT"){
                     self.coefPromo=0.02;
                     self.Final=self.prix*self.coefPromo;
-                    return self.Final + " €";
+                    return Math.round(self.Final*100)/100 + " €";
                 }else{
-                    self.Final=self.prix;
+                    self.Final=0;
                     return "Aucun code promo";
                 }
             }
 
-        }
+        }*/
     };
     this.totalPrix = function() {
         var i = self.prix-self.Final;
+        return i;
     };
 });
