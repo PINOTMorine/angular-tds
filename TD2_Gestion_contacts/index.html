@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>TD2 - Exo 2</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js"></script>
+    <script src="MainController.js"></script>
+</head>
+<body data-ng-app="app">
+<fieldset ng-controller="MainController as mainCtrl">
+    <h3>Contacts</h3>
+    <input type="text" placeholder="Filtrer...">
+    <br><br>
+    <table>
+        <tr ng-repeat="contact in mainCtrl.contacts">
+            <td> {{contact.nom}} </td>
+            <td> {{contact.prenom}} </td>
+            <td> {{contact.mail}} </td>
+            <td> <button style="border: none;background-color: white;"><img src="modif.png"/></button> </td>
+            <td> <button style="border: none;background-color: white;"><img src="suprr.png"/></button> </td>
+        </tr>
+    </table>
+    <br>
+    <button>Ajouter...</button>
+
+    <!-- Ajout -->
+    <div>
+        <br><br>
+        <h3>Ajouter un contact</h3>
+        <input type="text" placeholder="Entrer un nom..."><br>
+        <input type="text" placeholder="Prénom..."><br>
+        <input type="text" placeholder="Adresse mail..."><br>
+        <button>Valider</button><button>Annuler</button>
+    </div>
+
+    <!-- Modification -->
+    <div>
+        <br><br>
+        <h3>Modifier un contact</h3>
+        <input type="text" placeholder="Entrer un nom..."><br>
+        <input type="text" placeholder="Prénom..."><br>
+        <input type="text" placeholder="Adresse mail..."><br>
+        <button>Valider</button><button>Annuler</button>
+    </div>
+
+    <br><br>
+    <label>3 contacts trouvés</label>
+</fieldset>
+</body>
+</html>
