@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-ng-app="TD3">
+<html lang="fr" data-ng-app="TD3">
 <head>
     <meta charset="UTF-8">
     <title>Currency Application</title>
@@ -8,17 +8,19 @@
     <script src="mainController.js"></script>
 </head>
 <body data-ng-controller="MainController as mainCtrl">
-<fieldset style="width:600px;">
+<fieldset style="width:740px;">
     <br><label>Exercice 3 : Currency Application</label><br><br><br>
-    <input type="number" min="0" name="first">
+    <input type="number" min="0" name="first" style="width:50px;">
 
-    <select name="selectEntrer" ng-model="currencies">
-        <option name="option" ></option>
+    <select name="selectEntrer" ng-model="mainCtrl.from" data-ng-options="v.code + ' - ' + v.name for (k,v) in mainCtrl.currencies">
+        <option></option>
     </select>
-
-    <select name="selectSortie"></select>
-    <button name="valider">Convertir</button>
-    <input type="number" min="0" name="second">
+    <button name="swap" data-ng-click="mainCtrl.swap()" style="background:white;border-radius: 8px; border : 2px solid lightgrey;">↔</button>
+    <select name="selectSortie" ng-model="mainCtrl.to" data-ng-options="v.code + ' - ' + v.name for (k,v) in mainCtrl.currencies">
+        <option></option>
+    </select>
+    <button name="valider" style="color:white;background:#99b3ff;border-radius: 8px; border : 2px solid #003399;">Convertir</button>
+    <input type="number" min="0" name="second" style="width:50px;">
 </fieldset>
 </body>
 </html>
