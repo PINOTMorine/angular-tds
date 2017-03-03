@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app="TD3">
+<head>
+    <meta charset="UTF-8">
+    <title>Currency Application</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js"></script>
+    <script src="app.js"></script>
+    <script src="mainController.js"></script>
+</head>
+<body data-ng-controller="MainController as mainCtrl">
+<fieldset style="width:600px;">
+    <br><label>Exercice 3 : Currency Application</label><br><br><br>
+    <input type="number" min="0" name="first">
+
+    <select name="selectEntrer" ng-model="currencies">
+        <option name="option" ></option>
+    </select>
+
+    <select name="selectSortie"></select>
+    <button name="valider">Convertir</button>
+    <input type="number" min="0" name="second">
+</fieldset>
+</body>
+</html>
