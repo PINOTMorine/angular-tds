@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html data-ng-app="App">
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.11/angular.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.11/angular-route.min.js"></script>
+<!-- appel des fichiers .js -->
+    <script src="js/app2.js"></script>
+    <script src="js/controller2.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/controller1.js"></script>
+    <script src="js/directives.js"></script>
+    <script src="js/routes.js"></script>
+
+</head>
+<body>
+<h1>Main</h1>
+<ul>
+    <li><a href="#page1">Page 1</a></li>
+    <li><a href="#page2">Page 2</a></li>
+</ul>
+<data-ng-view></data-ng-view>
+<!--
+    Permet l'affichage de la ligne de texte
+    Fait appel au .js
+-->
+
+</body>
+</html>
+
+
+<!--
+    Le code affiche Main ("<h1></h1>") et 2 liens (page 1 et page 2, "<li></li>")
+    En dessous, c'est écrit "Client : Dupond"
+    l'url habitudel est suivis de "#/page1" (<a hre="...")
+
+    On observe que si l'on clique sur page 2,
+    l'url se modifie en "page 2" et
+    le texte en dessous affiche "Client : Durand"
+
+-->
