@@ -8,25 +8,38 @@
     <script src="mainController.js"></script>
 </head>
 <body data-ng-controller="MainController as mainCtrl">
-<fieldset style="width:280px;height:500px;">
-    <br><label>Exercice 4 : Calculatrice</label><br><br><br>
-    <fieldset style="background-color:lightgrey; color:darkslategrey; border:1px solid slategrey; border-radius:6px;">
-        <label style="font-family: 'Courier New', Courrier, serif; ">Total écrit</label><br>
-        <label style="font-family: 'Arial', Arial, sans-serif; ">Dernier écrit</label>
-    </fieldset>
-    <br><br>
-    <label ng-repeat="op in mainCtrl.ops">
-        <button ng-show="op.value != ' ' && op.value != '\n' && op.value != '='"
-                ng-style="((op.value === 1 || op.value === 2 || op.value === 3 || op.value === 4 || op.value === 5 || op.value === 6 || op.value === 7 || op.value === 8 || op.value === 9 || op.value === '.') && {'color':'black','background-color':'white','border':'1px solid lightgrey'})
-                            || (op.value === '0' && {'color':'black','background-color':'white','border':'1px solid lightgrey','width':'100px'})
-                            || (op.value === 'Off' && {'background-color':'#D9534F','border':'1px solid #D43F3A'})"
-                style="background-color:#5BC0DE; color:white; border:1px solid #46B8DA; width:45px; height:45px;margin:3px 3px 3px 3px; border-radius:4px;">{{op.value}}</button>
-        <label ng-show="op.value === ' '">&nbsp;</label>
-        <label ng-show="op.value === '\n'"><br></label>
-        <div ng-show="op.value === '='" style="position : relative; top : -100px; left : 229px;">
-            <button style="background-color:#5CB85C; color:white; border:1px solid #4CAE4C; width:45px; margin:2px 2px 2px 2px; height:95px; border-radius:4px;">=</button>
-        </div>
+<fieldset style="width:300px;height:500px;">
+    <br><label>Exercice 4 : Calculatrice</label><br><br>
+    <label ng-show="mainCtrl.view === true"><br>
+        <fieldset style="background-color:lightgrey; color:darkslategrey; border:1px solid slategrey; border-radius:6px;">
+            <label style="font-family: 'Courier New', Courrier, serif; font-size:12px;">{{mainCtrl.chaineTotal()}}</label><br>
+            <label style="font-family: 'Arial', Arial, sans-serif; ">{{mainCtrl.dernier()}}</label>
+        </fieldset>
+
+        <br><br>
+
+        <label ng-repeat="op in mainCtrl.ops">
+            <button ng-show="op.value != ' ' && op.value != '\n' && op.value != '='"
+                    ng-click="mainCtrl.addChaine(op)"
+                    ng-style="((op.value === 1 || op.value === 2 || op.value === 3 || op.value === 4 || op.value === 5 || op.value === 6 || op.value === 7 || op.value === 8 || op.value === 9 || op.value === '.') && {'color':'black','background-color':'white','border':'1px solid lightgrey'})
+                                || (op.value === '0' && {'color':'black','background-color':'white','border':'1px solid lightgrey','width':'100px'})
+                                || (op.value === 'Off' && {'background-color':'#D9534F','border':'1px solid #D43F3A'})"
+                    style="background-color:#5BC0DE; color:white; border:1px solid #46B8DA; width:45px; height:45px;margin:3px 3px 3px 3px; border-radius:4px;">{{op.value}}</button>
+            <label ng-show="op.value === ' '">&nbsp;</label>
+            <label ng-show="op.value === '\n'"><br></label>
+            <div ng-show="op.value === '='" style="position : relative; top : -100px; left : 229px;">
+                <button ng-click="mainCtrl.addChaine(op)"
+                        style="background-color:#5CB85C; color:white; border:1px solid #4CAE4C; width:45px; margin:2px 2px 2px 2px; height:95px; border-radius:4px;">=</button>
+            </div>
+        </label>
     </label>
+    <label ng-show="mainCtrl.view === false">
+        <button
+                ng-click="mainCtrl.connexion()"
+                style="background-color:#5BC0DE; color:white; border:1px solid #46B8DA; width:45px; height:45px;margin:3px 3px 3px 3px; border-radius:4px;">On</button>
+
+    </label>
+
 </fieldset>
 </body>
 </html>
