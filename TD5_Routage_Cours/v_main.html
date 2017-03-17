@@ -7,14 +7,12 @@
     <script src="app.js"></script>
     <script src="app/controllers.js"></script>
     <script src="app/routing.js"></script>
+    <base href="/angular-tds/TD5_Routage_Cours/"/>
 </head>
 <body>
-<a href="#/route1">Route 1</a><br/>
-<a href="#/route2/Smith">Route 2</a><br/>
-<a href="#/route3">Route inexistante</a><br/>
-
-<div ng-view>
-
-</div>
+<a href="route1">Route 1</a><br/>
+<a href="route2/Smith?prenom=John">Route 2</a><br/>
+<a href="route3">Route inexistante</a><br/>
+<div ng-view></div>
 </body>
 </html>
