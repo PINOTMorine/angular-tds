@@ -3,5 +3,16 @@
  */
 angular.module("sampleApp").controller("projetController",["$routeParams",function($routeParams){
     this.content2="Contenu de project";
-    this.params=$routeParams;
+    this.id= $routeParams;
+
+//Je n'ai pas trouvé comment injecter daoService.js dans ce controller
+
+    //variables publiques
+    this.project;
+    this.dev;
+
+    //méthode publique
+    this.Dev=function (dev,story) {
+        //
+    }
 }]);
